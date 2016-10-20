@@ -1,14 +1,12 @@
 function solve (inputArray) {
-    let numbers = (function () {
+    
+    let inputNumber = (function (){
         return {
-            getMaxNumber: (nums) => {
-                nums = nums.map(Number);
-                return Math.max.apply(null, nums);
-            }
+            maxNumber: (numbers) => Math.max.apply(null, numbers)
         };
     })();
 
-    console.log(numbers.getMaxNumber(inputNumbers));
+    return inputNumber.maxNumber(inputArray);
 }
 
 // solve([1, 44, 123, 33]);
