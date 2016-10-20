@@ -1,11 +1,18 @@
 function solve() {
-    let usernamePattern = /^[a-zA-Z0-9]{3,20}$/g;
-    let passwordPattern = /^[a-zA-Z0-9_]{5,15}$/g;
-    let emailPattern = /^.+?@.+?[.]{1,}.+[.]*/g;
+    let usernameField = $('#username');
+    let passwordField = $('#password');
+    let confirmPasswordField = $('#confirm-password');
+    let emailField = $('#email');
+    let companyNumberField = $('#companyNumber');
 
     return function() {
+        let usernamePattern = /^[a-zA-Z0-9]{3,20}$/g;
+        let passwordPattern = /^[a-zA-Z0-9_]{5,15}$/g;
+        let emailPattern = /^.+?@.+?[.]{1,}.+[.]*/g;
+
         // hide/show company info
         $('#company').on('click', function (event) {
+            $('#companyNumber').val('');
             let field = $('#companyInfo');
             if (field.css('display') === 'none') {
                 field.css('display', 'inline');
@@ -16,19 +23,13 @@ function solve() {
 
         // validate before submit
         $('#submit').on('click', function (event) {
-            let usernameField = $('#username');
-            let passwordField = $('#password');
-            let confirmPasswordField = $('#confirm-password');
-            let emailField = $('#email');
-            let companyNumberField = $('#companyNumber');
+            event.preventDefault();
+            usernameField.css('border-color', 'rgba(255, 0, 0, 0)');
+            passwordField.css('border-color', 'rgba(255, 0, 0, 0)');
+            confirmPasswordField.css('border-color', 'rgba(255, 0, 0, 0)');
+            emailField.css('border-color', 'rgba(255, 0, 0, 0)');
+            companyNumberField.css('border-color', 'rgba(255, 0, 0, 0)');
 
-            usernameField.css('border', 'none');
-            passwordField.css('border', 'none');
-            confirmPasswordField.css('border', 'none');
-            emailField.css('border', 'none');
-            companyNumberField.css('border', 'none');
-            $('#valid').css('display', 'none');
-            
 
             let username = usernameField.val().match(usernamePattern);
             let password = passwordField.val().match(passwordPattern);
@@ -47,30 +48,27 @@ function solve() {
                 if (password[0] !== confirmPassword[0]) {
                     password = undefined;
                 }
+            } else {
+                password = undefined;
             }
 
             if (!username || !password || !email || (!companyNumber && isCompany.prop('checked'))) {
-                event.preventDefault();
+                $('#valid').css('display', 'none');
+
                 if (!username) {
-                    usernameField.css('border', 'solid');
-                    usernameField.css('border-color', 'red');
+                    usernameField.css('border-color', '#ff0000');
                 }
                 if (!password) {
-                    passwordField.css('border', 'solid');
-                    confirmPasswordField.css('border', 'solid');
-                    passwordField.css('border-color', 'red');
-                    confirmPasswordField.css('border-color', 'red');
+                    passwordField.css('border-color', '#ff0000');
+                    confirmPasswordField.css('border-color', '#ff0000');
                 }
                 if (!email) {
-                    emailField.css('border', 'solid');
-                    emailField.css('border-color', 'red');
+                    emailField.css('border-color', '#ff0000');
                 }
-                if (!companyNumber) {
-                     companyNumberField.css('border', 'solid');
-                    companyNumberField.css('border-color', 'red');
+                if (!companyNumber && isCompany.prop('checked')) {
+                    companyNumberField.css('border-color', '#ff0000');
                 }
             } else {
-                event.preventDefault();
                 $('#valid').css('display', '');
             }
         });
