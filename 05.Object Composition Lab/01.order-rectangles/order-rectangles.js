@@ -8,7 +8,7 @@ function solve (inputArray) {
     }
 
     rectangles.sort((a, b) => a.compareTo(b));
-    console.log(rectangles);
+    return rectangles;
 
     function createRect (width, height) {
         let rect = {

@@ -17,10 +17,15 @@ function solve (inputArray) {
             let keys = []
             let childKeys = Object.keys(targetCar);
             keys.push.apply(keys, childKeys);
-            if (Object.getPrototypeOf(targetCar)) {
-                let parentKeys = Object.keys(Object.getPrototypeOf(cars.get(carName)));
-                keys.push.apply(keys, parentKeys);    
+            let firstParent = Object.getPrototypeOf(targetCar);
+
+            let parent = Object.getPrototypeOf(targetCar);
+            while (parent) {
+                let parentKeys = Object.keys(parent);
+                keys.push.apply(keys, parentKeys);
+                parent = Object.getPrototypeOf(parent);
             }
+
             let resultString = keys.map((key) => `${key}:${targetCar[key]}`).join(', ');
             console.log(resultString);
         }
@@ -40,4 +45,14 @@ function solve (inputArray) {
 //     'set c2 model new',
 //     'print c1',
 //     'print c2'
+// ]);
+
+
+// solve([
+//     'create pesho',
+//     'create gosho inherit pesho',
+//     'create stamat inherit gosho',
+//     'set pesho rank number1',
+//     'set gosho nick goshko',
+//     'print stamat'
 // ]);

@@ -1,25 +1,24 @@
-function solve (inputArgs) {
+function solve () {
     let resultObject = (() => {
         let domObject = {};
-        domObject.resultBox = $('#result');
         
         return {
-            // init: (selector1 = '#num1', selector2 = '#num2', resultSelector = '#result') => {
-            //     domObject.firstNum = Number($(selector1).val());
-            //     domObject.secondNum = Number($(selector2).val());
-            //     domObject.resultBox = $(resultSelector);
-            // },
+            init: (selector1, selector2, resultSelector) => {
+                domObject.firstNum = $(selector1);
+                domObject.secondNum = $(selector2);
+                domObject.resultBox = $(resultSelector);
+            },
             add: () => {
                 domObject.firstNum = Number($('#num1').val());
                 domObject.secondNum = Number($('#num2').val());
                 let resultValue = domObject.firstNum + domObject.secondNum;
-                return resultValue;
+                domObject.resultBox.val(resultValue);
             },
             subtract: () => {
                 domObject.firstNum = Number($('#num1').val());
                 domObject.secondNum = Number($('#num2').val());
                 let resultValue = domObject.firstNum - domObject.secondNum;
-                return resultValue;
+                domObject.resultBox.val(resultValue);
             }
         }
     })();
@@ -27,15 +26,23 @@ function solve (inputArgs) {
     return resultObject;
 }
 
-$(document).ready(() => {
-    let obj = solve();
-    $('#sumButton').click(() => {
-        $('#result').val(obj.add());
 
-    });
+// console.log($('#num1'));
+// // let num1 = $('#num1');
+// // let num2 = $('#num2');
+// // let res = $('#result');
+// // num1.val(5);
+// // num2.val(3);
+// // obj.add();
 
-    $('#subtractButton').click(() => {
-         $('#result').val(obj.subtract());
-    });
-});
+// $(document).ready(() => {
+//     let obj = solve();
+//     obj.init("#num1","#num2",'#result');
 
+//     $('#sumButton').on('click', () => {
+//         obj.add();
+//     });
+//     $('#subtractButton').on('click', () => {
+//         obj.subtract();
+//     });
+// });

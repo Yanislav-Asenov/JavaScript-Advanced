@@ -1,5 +1,7 @@
 function solve (inputNumber) {
-    let incrementNumber = (() => {
+    let resultArray = [];
+
+    let addFibonacciNumber = (() => {
         let firstNumber = 0;
         let secondNumber = 1;
 
@@ -7,13 +9,15 @@ function solve (inputNumber) {
             let currentNumber = firstNumber + secondNumber;
             firstNumber = secondNumber;
             secondNumber = currentNumber;
-            console.log(firstNumber);
+            resultArray.push(firstNumber);
         };
     })();
 
-    for (let i = 1; i <= 15; i++) {
-        incrementNumber();
+    for (let i = 1; i <= inputNumber; i++) {
+       addFibonacciNumber();
     }
+    
+    return resultArray;
 }
 
 // solve(15);
