@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Tracker</title>
+    <style>
+        #wrapper {
+            width: 800px;
+            border: 1px solid black;
+        }
+        #titlebar {
+            background-color: beige;
+            font-size: 2em;
+            padding: 0.5em;
+        }
+        .report {
+            margin: 1em;
+            border:1px solid black;
+            width: 400px;
+        }
+        .report .title {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 0.25em;
+            position: relative;
+        }
+        .report .body p {
+            margin: 0.5em;
+        }
+        .report .title .status {
+            display: inline-block;
+            right: 0px;
+            position: absolute;
+            margin-right: 0.5em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="titlebar">Bug tracker</div>
+    <div id="content">
+    </div>
+    <!--<script>
+        let test  = (function bugTracker () {
+        let reportedBugs = [];
+        let id = -1;
+        let outputElement = $('#content');
+
+        function report (author, description, reproducible, severity) {
+            let newBugReport = {
+                ID: ++id,
+                author: author,
+                description: description,
+                reproducible: reproducible,
+                severity: severity,
+                status: 'Open'
+            };
+
+            reportedBugs.push(newBugReport);
+            printReports();
+        }
+
+        function setStatus (bugId, newStatus) {
+            for (let i = 0; i < reportedBugs.length; i++) {
+                let currentReportedBug = reportedBugs[i];
+                if (currentReportedBug.ID === bugId) {
+                    reportedBugs[i].status = newStatus;
+                    break;
+                }
+            }
+
+            printReports();
+        }
+
+        function remove (bugId) {
+            let bugIndexInTheArray = -1;
+            for (let i = 0; i < reportedBugs.length; i++) {
+                if (reportedBugs[i].ID === bugId) {
+                    bugIndexInTheArray = i;
+                    break;
+                }
+            }
+
+            reportedBugs.splice(bugIndexInTheArray, 1);
+            printReports();
+        }
+
+        function sort (methodForSorting) {
+            if (methodForSorting === 'ID') {
+                reportedBugs.sort((a, b) => a.ID > b.ID);
+            } else if (methodForSorting === 'author') {
+                reportedBugs.sort((a, b) => a.author > b.author);
+            } else if (methodForSorting === 'severity') {
+                reportedBugs.sort((a, b) => a.severity > b.severity);
+            } else {
+                reportedBugs.sort((a, b) => a.ID > b.ID);
+            }
+
+            printReports();
+        }
+
+        function output (selector) {
+            outputElement = $(selector);
+        }
+
+        function createHTMLReportElement (reportObject) {
+            let reportDiv = $('<div>');
+            reportDiv.attr('id', 'report_' + reportObject.ID);
+            reportDiv.addClass('report');
+
+            let bodyDiv = $('<div>');
+            bodyDiv.addClass('body');
+
+            let descriptionParagraph = $('<p>');
+            descriptionParagraph.text(reportObject.description);
+            bodyDiv.append(descriptionParagraph);
+            reportDiv.append(bodyDiv);
+
+            let titleDiv = $('<div>');
+            titleDiv.addClass('title');
+
+            let authorSpan = $('<span>');
+            authorSpan.addClass('author');
+            authorSpan.text('Submitted by: ' + reportObject.author);
+
+            let statusSpan = $('<span>');
+            statusSpan.addClass('status');
+            statusSpan.text(reportObject.status + ' | ' + reportObject.severity);
+            titleDiv.append(authorSpan);
+            titleDiv.append(statusSpan);
+            reportDiv.append(titleDiv);
+
+            let resultFragment = document.createDocumentFragment();
+            reportDiv.appendTo(resultFragment);
+
+            return resultFragment;
+        }
+
+        function printReports () {
+            let resultReportsFragment = document.createDocumentFragment();
+
+            for (let i = 0; i < reportedBugs.length; i++) {
+                let reportFragment = createHTMLReportElement(reportedBugs[i]);
+                reportFragment.appendTo(resultReportsFragment);
+            }
+
+            outputElement.append(resultReportsFragment);
+        }
+
+        return {
+            report: report,
+            setStatus: setStatus,
+            remove: remove,
+            sort: sort,
+            printBugs: () => console.log(reportedBugs)
+        };
+        })();
+    </script>-->
+    <script src='./bug-tracker.js'></script>
+</div>
+</body>
+</html>

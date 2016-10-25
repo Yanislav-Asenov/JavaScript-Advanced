@@ -11,7 +11,7 @@
             return str + this;
         }
 
-        return this;
+        return this + '';
     }
 
     function ensureEnd (str) {
@@ -19,22 +19,30 @@
             return this + str;
         }
 
-        return this;
+        return this + '';
     }
 
     function isEmpty () {
-        return this === '';
+        if (!this) {
+            return true;
+        }
+
+        return false;
     }
 
     function truncate (n) {
-        return this.slice(0, n) + '...';
+        
     }
 
     function format (str) {
-        let regex = /\${.+?}/g;
+        let regex = /\{.+?}/g;
         let match = regex.exec(str);
         let argumentsIndex = 1;
         while (match) {
+            if (!arguments[argumentsIndex]) {
+                return str;
+            }
+
             let firstPart = str.slice(0, match.index);
             let matchLength = match[0].length;
             let secondPart = str.slice(match.index + matchLength);
@@ -46,9 +54,29 @@
 
         return str;
     }
-})();
+})()
 
 
-let testString = 'testestetes${testvar}sadsad asd sad  sdas d ${testVar} sdasdsadsad asdsadasdasda${testvar}sadsdsadsadasd ds 123 123123 13${testvar}';
+let str = 'my string';
 
-console.log(testString.truncate(10));
+str = str.ensureStart('my');
+console.log(str);
+str = str.ensureStart('hello ');
+console.log(str);
+str = str.truncate(16);
+console.log(str);
+str = str.truncate(14);
+console.log(str);
+str = str.truncate(8);
+console.log(str);
+str = str.truncate(4);
+console.log(str);
+str = str.truncate(2);
+console.log(str);
+str = String.format('The {0} {1} fox',
+  'quick', 'brown');
+console.log(str);
+str = String.format('jumps {0} {1}',
+  'dog');
+console.log(str);
+
