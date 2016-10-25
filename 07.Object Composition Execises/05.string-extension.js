@@ -7,52 +7,57 @@
     
 
     function ensureStart (str) {
-        if (!this.startsWith(str)) {
-            return str + this;
+        if (this.startsWith(str)) {
+            return this.toString();
         }
 
-        return this + '';
+        return str + this.toString();
     }
 
     function ensureEnd (str) {
-        if (!this.endsWith(str)) {
-            return this + str;
+        if (this.endsWith(str)) {
+            return this.toString();
         }
 
-        return this + '';
+        return this.toString() + str;
     }
 
     function isEmpty () {
-        if (!this) {
-            return true;
-        }
-
-        return false;
+        return this.toString() === '';
     }
 
     function truncate (n) {
-        
-    }
-
-    function format (str) {
-        let regex = /\{.+?}/g;
-        let match = regex.exec(str);
-        let argumentsIndex = 1;
-        while (match) {
-            if (!arguments[argumentsIndex]) {
-                return str;
+        if (this.length <= n)  {
+            return this.toString();
+        }
+ 
+        if (n < 4){
+            return '.'.repeat(n);
+        }
+ 
+        if (!this.includes(' ')){
+            return this.slice(0, n - 3) + '...';
+        }
+ 
+        let tokens = this.split(' ');
+        let result = tokens[0];
+ 
+        for (let i = 1; i < tokens.length; i++) {
+            if (result.length + tokens[i].length + 4 > n) {
+                return result + '...';
             }
 
-            let firstPart = str.slice(0, match.index);
-            let matchLength = match[0].length;
-            let secondPart = str.slice(match.index + matchLength);
-            let resultString = firstPart + arguments[argumentsIndex] + secondPart;
-            str = resultString;
-            match = regex.exec(str);
-            argumentsIndex++;
+            result += ` ${tokens[i]}`;
         }
+    }
 
-        return str;
+    function format (str, ...params) {
+       return str.replace(/\{([\d]+)\}/g, function (fullMatch, group) {
+            if(params[Number(group)] !== undefined) {
+                return params[Number(group)];
+            }
+            return fullMatch;
+        });
     }
 })()
 
