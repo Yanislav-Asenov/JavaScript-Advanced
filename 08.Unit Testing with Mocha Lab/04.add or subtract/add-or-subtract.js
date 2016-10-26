@@ -6,5 +6,12 @@ function createCalculator() {
         get: function() { return value; }
     }
 }
+let test = createCalculator();
+test.add();
+test.add();
+test.add();
+test.add();
+
+console.log(test.get());
 
 module.exports = { createCalculator };
