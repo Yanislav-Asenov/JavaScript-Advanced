@@ -59,17 +59,7 @@
     </div>
     <div id="footer">Copyright</div>
 </div>
-<script>
-    let selector = '#content';
-    (function findDeepestChild() {
-        let parent = $(selector);
-        parent.addClass('highlight');
-        for (let child of parent.children()) {
-            $(child).addClass('highlight');
-            let innerChild = $(child).children()[0]
-            $(innerChild).addClass('highlight');
-        }
-    })(selector);
+<script src='./dom-highlighter.js'>
 </script>
 </body>
 </html>
