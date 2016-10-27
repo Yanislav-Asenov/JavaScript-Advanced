@@ -1,57 +1,50 @@
 function solve () {
-    let sortedList = {
-        items: [],
-        add: add,
-        remove: remove,
-        get: get,
-        size: 0
-    };
+    return (function () {
+        let items = [];
 
-    return sortedList;
-
-
-    function add (item) {
-        sortedList.items.push(item);
-        sortedList.size++;
-
-        let resultArr = [];
-        for (let index in sortedList.items) {
-            resultArr.push(sortedList.items[index]);
+        function add (element) {
+            items.push(element);
+            sort();
         }
 
-        resultArr.sort((a, b) => a > b);
-        sortedList.items = resultArr;
-        sort();
-    }
-
-    function remove (index) {
-        if (index >= sortedList.size || index < 0) {
-
-        } else {
-            sortedList.items.splice(index, 1);
-            sortedList.size--;
-
-            let resultArr = [];
-            for (let index in sortedList.items) {
-                resultArr.push(sortedList.items[index]);
+        function remove (index) {
+            if (!isValidIndex(index)) {
+                throw new Error('Index is out of range. index: ' + index);
             }
 
-            resultArr.sort((a, b) => a > b);
-            sortedList.items = resultArr;
-             sort();
-        }
-    }
-
-    function get (index) {
-        if (index >= sortedList.size || index < 0) {
-
-        } else {
+            items.splice(index, 1);
             sort();
-            return sortedList.items[index];
         }
-    }
 
-    function sort () {
-        sortedList.items.sort((a, b) => a > b);
-    }
+        function get (index) {
+            if (!isValidIndex(index)) {
+                throw new Error('Index is out of range. index: ' + index);
+            }
+
+            sort();
+            return items[index];
+        }
+
+        function isValidIndex(index) {
+            return index >= 0 && index < items.length;
+        }
+
+        function sort () {
+            items = items.sort((a, b) => a - b);
+        }
+
+        function getSize () {
+            return items.length;
+        }
+
+        let sortedList = {
+            add,
+            remove,
+            get
+        };
+
+        sortedList.__defineGetter__("size", getSize);
+
+        return sortedList;
+    })();
 }
