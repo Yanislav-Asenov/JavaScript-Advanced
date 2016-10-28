@@ -13,7 +13,7 @@ function wikiParser (selector) {
     function replaceTag(str,symbol,tag) {
         let pattern = `${symbol}(.*?)${symbol}`;
         let regex = new RegExp(pattern,'g');
-        return str=str.replace(regex,(m,g) => `<${tag}>${g}</${tag}>`);
+        return str = str.replace(regex,(m,g) => `<${tag}>${g}</${tag}>`);
     }
  
     content.html(text);
