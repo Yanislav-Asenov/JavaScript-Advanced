@@ -1,5 +1,5 @@
-(function solve () {
-    let startElement = $('#content');
+function solve (selector) {
+    let startElement = $(selector);
     let depth = 1;
 
     let deepestChild = '';
@@ -17,12 +17,14 @@
         children.each((index, element) => getDepth(depth + 1, element));
     }
 
-    $(deepestChild).addClass('.highlight');
-    console.log(deepestChild);
-    console.log(maxDepth);
+    $(deepestChild).addClass('highlight');
+    maxDepth--;
 
-    // while (maxDepth >= 0) {
-    //     deepestChild.addClass()
-    // }
-})();
+    let parent = $(deepestChild).parent(); 
 
+    while (maxDepth > 0) {
+        $(parent).addClass('highlight');
+        parent = parent.parent();
+        maxDepth--;
+    }
+}
