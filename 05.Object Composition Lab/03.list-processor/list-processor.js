@@ -13,6 +13,3 @@ function solve (inputArray) {
         processCommand[itemArgs[0]](itemArgs[1]);
     }
 }
-
-// solve(['add hello', 'add again', 'remove hello', 'add again', 'print']);
-// solve(['add pesho', 'add gosho', 'add pesho', 'remove pesho','print']);

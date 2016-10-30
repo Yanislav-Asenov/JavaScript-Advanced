@@ -1,8 +1,6 @@
 function solve (inputArray) {
     let rectangles = [];
 
-
-
     for (let [width, height] of inputArray) {
         rectangles.push(createRect(width, height));
     }
@@ -24,5 +22,3 @@ function solve (inputArray) {
         return rect;
     }
 }
-
-// solve([[10,5], [3,20], [5,12]]);

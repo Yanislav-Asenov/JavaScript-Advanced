@@ -24,13 +24,3 @@ function result () {
 
     return domObject;
 }
-
-// let obj = solve();
-
-// obj.init("#num1","#num2",'#result');
-// let num1 = $('#num1');
-// let num2 = $('#num2');
-// let res = $('#result');
-// num1.val(5);
-// num2.val(3);
-// obj.add();

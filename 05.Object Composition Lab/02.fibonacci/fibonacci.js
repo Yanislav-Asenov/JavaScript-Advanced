@@ -19,5 +19,3 @@ function solve (inputNumber) {
     
     return resultArray;
 }
-
-// solve(15);
