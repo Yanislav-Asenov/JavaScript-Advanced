@@ -11,6 +11,6 @@ function search() {
         } else {
             element.css('font-weight', 'normal');
         }
-        $('#result').text(matchesCount + ' matches found.')
+        $('#result').text(matchesCount + ' matches found.');
     }
 }

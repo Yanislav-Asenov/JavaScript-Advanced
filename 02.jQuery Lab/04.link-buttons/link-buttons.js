@@ -8,7 +8,6 @@ function attachEvents () {
                 $(link).removeClass('selected');
             }
         }
-
         $(this).addClass('selected');
     }
 }
