@@ -1,14 +1,12 @@
 class Checkbox {
     constructor (label, selector) {
         this._label = label;
-        this._selector = selector;
         this._elements = $(selector);
-        this._value = this._elements.is(':checked');
+        this.value = this._elements.is(':checked');
 
-        let self = this;
-        self._elements.on('change', function (ev) {
-            self.value = $(this).prop('checked');
-         });
+        this._elements.on('change', (ev) => {
+            this.value = $(ev.target).prop('checked');
+        });
     }
 
     get label () {
@@ -23,13 +21,13 @@ class Checkbox {
         return this._value;
     }
 
-    set value (newValue) {
-        if (typeof newValue !== 'boolean') {
-            throw new Error('Error');
+    set value (val) {
+        if (typeof val != 'boolean') {
+            throw new Error('Not Boolean');
         }
 
-        this._value = newValue;
-        this._elements.prop('checked', newValue);
+        this._value = val;
+        this.elements.prop('checked', val);
     }
 }
 

@@ -4,11 +4,10 @@ class Numberbox {
         this._minValue = minValue;
         this._maxValue = maxValue;
         this._elements = $(selector);
-        this._value = $(selector).val();
+        this.value = minValue;
 
-        let self = this;
-        self._elements.on('change', function (ev) {
-            self.value = newValue;
+        this._elements.on('change', (ev) => {
+            this.value = $(ev.target).val();
         });
     }
 
@@ -24,13 +23,13 @@ class Numberbox {
         return this._value;
     }
 
-    set value (newValue) {
-        if (newValue > this._maxValue || newValue < this._minValue) {
-            throw new Error('Error');
+    set value (val) {
+        if (val < this._minValue || val > this._maxValue) {
+            throw new Error('Not a valid number');
         }
 
-        this._value = newValue;
-        this._elements.val(newValue);
+        this._value = val;
+        this._elements.val(val);
     }
 }
 
