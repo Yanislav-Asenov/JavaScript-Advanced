@@ -45,12 +45,12 @@ function solve () {
     class Melolemonmelon extends Firemelon {
         constructor (weight, melonSort, element = 'Water') {
             super(weight, melonSort, element);
-            this.elements = ['Fire', 'Earth', 'Air', 'Water'];
+            this.elements = ['Water', 'Fire', 'Earth', 'Air'];
         }
 
         morph () {
-            this.elements.push(this.element);
-            this.element = this.elements.shift();
+            this.elements.push(this.elements.shift());
+            this.element = this.elements[0];
             return this;
         }
     }
