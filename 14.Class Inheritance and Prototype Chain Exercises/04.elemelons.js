@@ -1,15 +1,16 @@
 function solve () {
     class Melon {
-        constructor (weight, melonSort) {
+        constructor (weight, melonSort, element) {
             if (new.target === Melon) {
                 throw new Error('Abstract class cannot be instantiated directly');
             }
             this.weight = weight;
             this.melonSort  = melonSort;
+            this.element = element;
         }
 
         toString () {
-            return `Element: ${this.elementYani}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
+            return `Element: ${this.element}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
         }
 
         get elementIndex () {
@@ -18,43 +19,38 @@ function solve () {
     }
 
     class Watermelon extends Melon {
-        constructor (weight, melonSort) {
-            super(weight, melonSort);
-            this.elementYani = 'Water';
+        constructor (weight, melonSort, element = 'Water') {
+            super(weight, melonSort, element);
         }
     }
 
     class Firemelon extends Melon {
-        constructor (weight, melonSort) {
-            super(weight, melonSort);
-            this.elementYani = 'Fire';
+        constructor (weight, melonSort, element = 'Fire') {
+            super(weight, melonSort, element);
         }
     }
 
     class Earthmelon extends Melon {
-        constructor (weight, melonSort) {
-            super(weight, melonSort);
-            this.elementYani = 'Earth';
+        constructor (weight, melonSort, element = 'Earth') {
+            super(weight, melonSort, element);
         }
     }
 
     class Airmelon extends Melon {
-        constructor (weight, melonSort) {
-            super(weight, melonSort);
-            this.elementYani = 'Air';
+        constructor (weight, melonSort, element = 'Air') {
+            super(weight, melonSort, element);
         }
     }
 
     class Melolemonmelon extends Firemelon {
-        constructor (weight, melonSort) {
-            super(weight, melonSort);
-            this.elements = ['Water', 'Fire', 'Earth', 'Air'];
-            this.elementYani = 'Water';
+        constructor (weight, melonSort, element = 'Water') {
+            super(weight, melonSort, element);
+            this.elements = ['Fire', 'Earth', 'Air', 'Water'];
         }
 
         morph () {
-            this.elements.push(this.elements.shift());
-            this.elementYani = this.elements[0];
+            this.elements.push(this.element);
+            this.element = this.elements.shift();
             return this;
         }
     }
