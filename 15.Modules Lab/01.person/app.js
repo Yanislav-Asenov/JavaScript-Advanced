@@ -1,2 +1,3 @@
-let Person = require('./person.js').Person;
-result.Person = Person;
+let Person = require('./modules/person.js').Person;
+
+// result.Person = Person;

@@ -1,9 +1,9 @@
-let Entity = require('./Entity').Entity;
-let Person = require('./person').Person;
-let Dog = require('./dog').Dog;
-let Student = require('./student').Student;
+let Entity = require('./modules/entity').Entity;
+let Person = require('./modules/person').Person;
+let Dog = require('./modules/dog').Dog;
+let Student = require('./modules/student').Student;
 
-result.Entity = Entity;
-result.Person = Person;
-result.Dog = Dog;
-result.Student = Student;
+// result.Entity = Entity;
+// result.Person = Person;
+// result.Dog = Dog;
+// result.Student = Student;

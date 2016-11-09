@@ -8,6 +8,4 @@ class Person {
     }
 }
 
-module.exports = {
-    Person
-};
+module.exports.Person = Person;

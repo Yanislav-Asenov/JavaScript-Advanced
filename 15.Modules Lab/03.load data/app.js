@@ -1,6 +1,4 @@
-let functions = require('./template');
-
-// console.log(functions.filter('status', 'shipped'));
+let functions = require('./modules/template');
 
 result.sort = functions.sort;
 result.filter = functions.filter;

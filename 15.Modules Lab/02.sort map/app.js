@@ -1,3 +1,3 @@
-let mapSort = require('./helper-functions').mapSort;
+let mapSort = require('./modules/helper-functions').mapSort;
 
-result.mapSort = mapSort;
+// result.mapSort = mapSort;

@@ -1,4 +1,4 @@
-function mapSort(map, sortFn){
+function mapSort (map, sortFn) {
     if(sortFn !== undefined){
 
         let sortedArr = [];
@@ -7,12 +7,13 @@ function mapSort(map, sortFn){
         }
 
         sortedArr.sort(sortFn);
+
         return new Map(sortedArr);
     } else {
-
         let sortedArr = []
-        for(let index of map)
-            sortedArr.push(index)
+        for(let index of map) {
+            sortedArr.push(index);
+        }
 
         sortedArr.sort(function(a, b) {
             if(a[0] < b[0]) {
