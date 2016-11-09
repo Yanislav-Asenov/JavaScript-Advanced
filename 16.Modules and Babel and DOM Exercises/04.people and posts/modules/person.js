@@ -6,8 +6,7 @@ class Person {
     }
 
     addToSelector (selector) {
-        let personDiv = $(`<div></div>`);
-        personDiv.addClass(`person ${this.name}`);
+        let personDiv = $(`<div class="person ${this.name}"></div>`);
         let nameParagraph = $(`<p class="name">${this.name}</p>`);
         let ageParagraph = $(`<p class="age">${this.age}</p>`);
         let postsDiv = $(`<div class="posts ${this.name}"></div>`);

@@ -21,6 +21,7 @@ class EvkodianTurtle extends Turtle {
      toString () {
         let resultString = `${super.toString()}\n`;
         resultString += `Evkodium: ${this.evkodium.value * this.evkodium.density}`;
+
         return resultString;
     }
 }

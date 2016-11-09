@@ -1,9 +1,9 @@
-let BaseElement = require('./base-element.js').BaseElement;
-let Article = require('./article.js').Article;
-let Footer = require('./footer.js').Footer;
-let ImageArticle = require('./image-article.js').ImageArticle;
-let TableArticle = require('./table-article.js').TableArticle;
-let TitleBar = require('./title-bar.js').TitleBar;
+let BaseElement = require('./modules/base-element.js').BaseElement;
+let Article = require('./modules/article.js').Article;
+let Footer = require('./modules/footer.js').Footer;
+let ImageArticle = require('./modules/image-article.js').ImageArticle;
+let TableArticle = require('./modules/table-article.js').TableArticle;
+let TitleBar = require('./modules/title-bar.js').TitleBar;
 
 
 // Export modules

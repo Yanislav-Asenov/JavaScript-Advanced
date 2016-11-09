@@ -18,6 +18,7 @@ class WaterTurtle extends Turtle {
     toString () {
         let resultString = `${super.toString()}\n`;
         resultString += `Currently inhabiting ${this.currentWaterPool}`;
+
         return resultString;
     }
 }

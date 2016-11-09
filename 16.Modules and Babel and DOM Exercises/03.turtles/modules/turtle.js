@@ -28,6 +28,7 @@ class Turtle {
     toString () {
         let resultString = `Turtle: ${this.name}\n`;
         resultString += `Aged - ${this.age}; Gender - ${this.gender}`;
+
         return resultString;
     }
 }

@@ -1,5 +1,5 @@
-let Person = require('./person.js').Person;
-let Post = require('./post.js').Post;
+let Person = require('./modules/person.js').Person;
+let Post = require('./modules/post.js').Post;
 
-result.Person = Person;
-result.Post = Post;
+// result.Person = Person;
+// result.Post = Post;

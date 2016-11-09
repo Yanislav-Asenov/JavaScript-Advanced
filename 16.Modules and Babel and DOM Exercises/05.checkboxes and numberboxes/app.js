@@ -1,5 +1,5 @@
-let Checkbox = require('./checkbox.js').Checkbox;
-let Numberbox = require('./numberbox.js').Numberbox;
+let Checkbox = require('./modules/checkbox.js').Checkbox;
+let Numberbox = require('./modules/numberbox.js').Numberbox;
 
-result.Checkbox = Checkbox;
-result.Numberbox = Numberbox;
+// result.Checkbox = Checkbox;
+// result.Numberbox = Numberbox;

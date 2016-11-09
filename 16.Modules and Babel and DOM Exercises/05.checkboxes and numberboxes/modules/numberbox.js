@@ -25,7 +25,7 @@ class Numberbox {
 
     set value (val) {
         if (val < this._minValue || val > this._maxValue) {
-            throw new Error('Not a valid number');
+            throw new Error('Not a valid value ' + val);
         }
 
         this._value = val;

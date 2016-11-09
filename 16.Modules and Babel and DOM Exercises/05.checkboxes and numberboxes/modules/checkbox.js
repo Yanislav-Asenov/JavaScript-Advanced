@@ -22,7 +22,7 @@ class Checkbox {
     }
 
     set value (val) {
-        if (typeof val != 'boolean') {
+        if (typeof val !== 'boolean') {
             throw new Error('Not Boolean');
         }
 
