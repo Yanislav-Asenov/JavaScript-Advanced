@@ -16,11 +16,10 @@ class Rat {
 
     toString () {
         let resultString = `${this.name}\n`;
-        for (let i = 0; i < this.rats.length; i++) {
-            resultString += `###${this.rats[i].name}\n`;
+        for (let rat of this.rats) {
+            resultString += `###${rat.name}\n`;
         }
 
         return resultString;
     }
 }
-
