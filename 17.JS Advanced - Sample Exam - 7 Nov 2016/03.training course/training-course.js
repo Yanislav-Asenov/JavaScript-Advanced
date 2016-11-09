@@ -1,16 +1,8 @@
 class TrainingCourse {
     constructor (title, trainer) {
-        this._title = title;
-        this._trainer = trainer;
+        this.title = title;
+        this.trainer = trainer;
         this.topics = [];
-    }
-
-    get title () {
-        return this._title;
-    }
-
-    get trainer () {
-        return this._trainer;
     }
 
     addTopic (title, date) {
@@ -19,12 +11,10 @@ class TrainingCourse {
     }
 
     get firstTopic () {
-        this.sortTopics();
         return this.topics[0];
     }
 
     get lastTopic () {
-        this.sortTopics();
         return this.topics[this.topics.length - 1];
     }
 

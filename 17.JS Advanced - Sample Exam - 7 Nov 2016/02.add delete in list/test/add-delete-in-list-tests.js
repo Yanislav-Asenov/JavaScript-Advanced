@@ -2,7 +2,6 @@ let expect = require('chai').expect;
 let list = require('../add-delete-in-list.js').list;
 
 describe('add-delete-in-list tests', () => {
-
     it('should have "add, delete and toString", functions', function () {
         expect(typeof(list.add)).to.equal('function', 'List object did not have "add" function');
         expect(typeof(list.delete)).to.equal('function', 'List object did not have "delete" function');
