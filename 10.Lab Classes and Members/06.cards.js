@@ -47,12 +47,3 @@ let result = (function solve () {
     };
 
 })();
-
-
-// let Card = result.Card;
-// let Suits = result.Suits;
-
-// let newCard = new Card('Q', Suits.CLUBS);
-// newCard.face = 'A';
-// newCard.suit = Suits.DIAMONDS;
-// let newCard2 = new Card('1', Suits.DIAMONDS);
