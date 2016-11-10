@@ -9,4 +9,3 @@ class Rectangle {
         return this.width * this.height;
     }
 }
-

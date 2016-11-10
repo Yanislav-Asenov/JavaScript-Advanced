@@ -22,4 +22,4 @@ let result = (function solve () {
     }
 
     return getPersons;
-})()
+})();
