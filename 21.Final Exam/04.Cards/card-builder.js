@@ -14,7 +14,7 @@ function cardDeckBuilder (selector) {
 
     return {
         addCard: function (face, suit) {
-            let suits = { C: '\u2663', D: '\u2666', H: '\u2665', S: '\u2660'};
+            let suits = { C: '\u2663', D: '\u2666', H: '\u2665', S: '\u2660' };
             let card = $(`<div class="card">${face} ${suits[suit]}</div>`);
             $(selector).append(addClickEvent(card));
         }

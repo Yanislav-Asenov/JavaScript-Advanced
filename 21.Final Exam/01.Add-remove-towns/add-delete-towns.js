@@ -1,4 +1,4 @@
-function attachEvents() {
+function attachEvents () {
     $('#btnDelete').on('click', function (ev) {
         $('#towns option:selected').remove();
     });
